@@ -4,7 +4,10 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/operator"
+                "${workspaceFolder}/operator",
+                "${workspaceFolder}/node",
+                "${workspaceFolder}/constante",
+                "${workspaceFolder}/variable"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
