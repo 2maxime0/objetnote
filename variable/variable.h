@@ -1,9 +1,10 @@
-class variable
+class Variable
 {
 private:
     char ident;
 public:
-    variable(char ident);
+    Variable();
+    Variable(char ident);
     char getIdent();
   
 };

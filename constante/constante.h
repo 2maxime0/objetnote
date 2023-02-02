@@ -6,6 +6,7 @@ class Constante
         int value; //Value in private to keep it constant
 
     public:
+        Constante();
         Constante(int value);
         int getValue();
 };
