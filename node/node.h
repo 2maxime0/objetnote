@@ -1,12 +1,14 @@
 //create a node class who contain an operator and two pointer to node
+#include <string>
 #include "operator.h"
 #include "constante.h"
 #include "variable.h"
+using namespace std;
 class Node
 { 
     public:
-        Node(Operator op, Node *left, Node *right);
-        int getValue();
+        Node();
+       
 };   
 
 class NodeOperator : public Node
@@ -18,25 +20,24 @@ class NodeOperator : public Node
 
     public:
         NodeOperator(Operator op, Node *left, Node *right);
-        int getValue();
+       
 };
 
 class NodeConstante : public Node
 {
     private:
-        int  value;
+        Constante value;
 
     public:
         NodeConstante(int value);
-        int getValue();
+       
 };
 
 class NodeVariable : public Node
 {
     private:
-        int  value;
-
+        Variable value;
     public:
-        NodeVariable(int  value);
-        int getValue();
+        NodeVariable(char  value);
+       
 };
