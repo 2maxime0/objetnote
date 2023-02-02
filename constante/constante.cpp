@@ -7,7 +7,13 @@ class Constante
         int value; //Value in private to keep it constant
 
     public:
-        Constante(int value);
+    Constante(){
+            this->value = 0;
+        
+    };
+        Constante(int value){
+            this->value = value;
+        };
         int getValue(){
             return value;
         };

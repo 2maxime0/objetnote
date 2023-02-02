@@ -4,7 +4,12 @@ class Operator
     private :
         char op; 
     public :    
-        Operator(char op);
+        Operator(){
+            op = '+';
+        };
+        Operator(char op){
+            this->op = op;
+        };
         char getOp(){
             return op;
         };
