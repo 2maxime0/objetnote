@@ -16,52 +16,72 @@ int main(int argc, char const *argv[])
     //print input 
     cout << input << endl;
 
-    printTree(createTree(input));
+    Node* tree = parseExpression(input);
+    printExpression(tree);
 
     return 0;
 }
 
-
-Node* createTree(const std::string& expression) {
-  stack<Node*> nodes;
-  stack<NodeOperator::Operator> operators;
-  for (char c : expression) {
-    if (c == '+' || c == '-' || c == '*' || c == '/') {
-      // Handle operator
-      NodeOperator::Operator op;
-      Node* right = nodes.top();
-      nodes.pop();
-      Node* left = nodes.top();
-      nodes.pop();
-      nodes.push(new NodeOperator(op, left, right));
-      operators.push(op);
-    } else if (isdigit(c)) {
-      // Handle constant
-      NodeConstant::Constant constant;
-      nodes.push(new NodeConstant(constant));
-    } else if (isalpha(c)) {
-      // Handle variable
-      NodeVariable::Variable variable;
-      nodes.push(new NodeVariable(variable));
+Node *parseExpression(const std::string &expression) {
+    std::stack<Node *> operands;
+    std::stack<char> operators;
+    for (int i = 0; i < expression.size(); i++) {
+        char c = expression[i];
+        if (c >= '0' && c <= '9') {
+            int j = i;
+            while (j < expression.size() && expression[j] >= '0' && expression[j] <= '9') {
+                j++;
+            }
+            operands.push(new NodeConstante(std::stoi(expression.substr(i, j - i))));
+            i = j - 1;
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+            while (!operators.empty() && operators.top() != '(') {
+                char op = operators.top();
+                operators.pop();
+                Node *right = operands.top();
+                operands.pop();
+                Node *left = operands.top();
+                operands.pop();
+                operands.push(new NodeOperator(op, left, right));
+            }
+            operators.push(c);
+        } else if (c == '(') {
+            operators.push(c);
+        } else if (c == ')') {
+            while (operators.top() != '(') {
+                char op = operators.top();
+                operators.pop();
+                Node *right = operands.top();
+                operands.pop();
+                Node *left = operands.top();
+                operands.pop();
+                operands.push(new NodeOperator(op, left, right));
+            }
+            operators.pop();
+        } else {
+            operands.push(new NodeVariable(c));
+        }
     }
-  }
-  return nodes.top();
+    while (!operators.empty()) {
+        char op = operators.top();
+        operators.pop();
+        Node *right = operands.top();
+        operands.pop();
+        Node *left = operands.top();
+        operands.pop();
+        operands.push(new NodeOperator(op, left, right));
+    }
+    return operands.top();
 }
 
-void printTree(Node* root) {
-  if (root == nullptr) {
-    return;
-  }
-  if (NodeOperator* node = dynamic_cast<NodeOperator*>(root)) {
-    std::cout << "Operator: " << node->op_ << std::endl;
-    printTree(node->left_);
-    printTree(node->right_);
-  } else if (NodeConstant* node = dynamic_cast<NodeConstant*>(root)) {
-    std::cout << "Constant: " << node->constant_ << std::endl;
-  } else if (NodeVariable* node = dynamic_cast<NodeVariable*>(root)) {
-    std::cout << "Variable: " << node->variable_ << std::endl;
-  }
+void printExpression(Node* node) {
+    if (NodeConstante* constanteNode = dynamic_cast<NodeConstante*>(node)) {
+        cout << constanteNode->value->getValue() << " ";
+    } else if (NodeOperator* operatorNode = dynamic_cast<NodeOperator*>(node)) {
+        cout << "(";
+        printExpression(operatorNode->getLeft());
+        cout << operatorNode->getOp().getOp() << " ";
+        printExpression(operatorNode->getRight());
+        cout << ")";
+    }
 }
-
-
-
