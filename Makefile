@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named your_executable_name
+# Target rules for targets named main
 
 # Build rule for target.
-your_executable_name: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 your_executable_name
-.PHONY : your_executable_name
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-your_executable_name/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/build
-.PHONY : your_executable_name/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 constante/constante.o: constante/constante.cpp.o
 .PHONY : constante/constante.o
 
 # target to build an object file
 constante/constante.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/constante/constante.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/constante/constante.cpp.o
 .PHONY : constante/constante.cpp.o
 
 constante/constante.i: constante/constante.cpp.i
@@ -142,7 +142,7 @@ constante/constante.i: constante/constante.cpp.i
 
 # target to preprocess a source file
 constante/constante.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/constante/constante.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/constante/constante.cpp.i
 .PHONY : constante/constante.cpp.i
 
 constante/constante.s: constante/constante.cpp.s
@@ -150,7 +150,7 @@ constante/constante.s: constante/constante.cpp.s
 
 # target to generate assembly for a file
 constante/constante.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/constante/constante.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/constante/constante.cpp.s
 .PHONY : constante/constante.cpp.s
 
 main.o: main.cpp.o
@@ -158,7 +158,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -166,7 +166,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -174,7 +174,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 node/node.o: node/node.cpp.o
@@ -182,7 +182,7 @@ node/node.o: node/node.cpp.o
 
 # target to build an object file
 node/node.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/node/node.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/node/node.cpp.o
 .PHONY : node/node.cpp.o
 
 node/node.i: node/node.cpp.i
@@ -190,7 +190,7 @@ node/node.i: node/node.cpp.i
 
 # target to preprocess a source file
 node/node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/node/node.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/node/node.cpp.i
 .PHONY : node/node.cpp.i
 
 node/node.s: node/node.cpp.s
@@ -198,7 +198,7 @@ node/node.s: node/node.cpp.s
 
 # target to generate assembly for a file
 node/node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/node/node.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/node/node.cpp.s
 .PHONY : node/node.cpp.s
 
 operator/operator.o: operator/operator.cpp.o
@@ -206,7 +206,7 @@ operator/operator.o: operator/operator.cpp.o
 
 # target to build an object file
 operator/operator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/operator/operator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/operator/operator.cpp.o
 .PHONY : operator/operator.cpp.o
 
 operator/operator.i: operator/operator.cpp.i
@@ -214,7 +214,7 @@ operator/operator.i: operator/operator.cpp.i
 
 # target to preprocess a source file
 operator/operator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/operator/operator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/operator/operator.cpp.i
 .PHONY : operator/operator.cpp.i
 
 operator/operator.s: operator/operator.cpp.s
@@ -222,7 +222,7 @@ operator/operator.s: operator/operator.cpp.s
 
 # target to generate assembly for a file
 operator/operator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/operator/operator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/operator/operator.cpp.s
 .PHONY : operator/operator.cpp.s
 
 variable/variable.o: variable/variable.cpp.o
@@ -230,7 +230,7 @@ variable/variable.o: variable/variable.cpp.o
 
 # target to build an object file
 variable/variable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/variable/variable.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/variable/variable.cpp.o
 .PHONY : variable/variable.cpp.o
 
 variable/variable.i: variable/variable.cpp.i
@@ -238,7 +238,7 @@ variable/variable.i: variable/variable.cpp.i
 
 # target to preprocess a source file
 variable/variable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/variable/variable.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/variable/variable.cpp.i
 .PHONY : variable/variable.cpp.i
 
 variable/variable.s: variable/variable.cpp.s
@@ -246,7 +246,7 @@ variable/variable.s: variable/variable.cpp.s
 
 # target to generate assembly for a file
 variable/variable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/your_executable_name.dir/build.make CMakeFiles/your_executable_name.dir/variable/variable.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/variable/variable.cpp.s
 .PHONY : variable/variable.cpp.s
 
 # Help Target
@@ -257,7 +257,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... your_executable_name"
+	@echo "... main"
 	@echo "... constante/constante.o"
 	@echo "... constante/constante.i"
 	@echo "... constante/constante.s"

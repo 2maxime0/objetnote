@@ -22,4 +22,4 @@ set(HEADERS
 )
 
 # Create the executable
-add_executable(your_executable_name ${SOURCES} ${HEADERS})
+add_executable(main ${SOURCES} ${HEADERS})

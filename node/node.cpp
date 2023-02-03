@@ -1,6 +1,7 @@
 //create a node class who contain an operator and two pointer to node
 #include "node.h"
 #include <stack>
+#include <string>
 #include "../operator/operator.h"
 #include "../constante/constante.h"
 #include "../variable/variable.h"
@@ -22,7 +23,7 @@ class NodeOperator : public Node
         Node *right;
 
     public:
-        NodeOperator(char op, Node *left, Node *right){
+        NodeOperator(char op, Node *left, Node *right):Node(){
             this->op = Operator(op);
             this->left = left;
             this->right = right;
@@ -36,7 +37,7 @@ class NodeConstante : public Node
         Constante value;
 
     public:
-        NodeConstante(int value){
+        NodeConstante(int value):Node(){
             this->value = value;
         };
        
@@ -47,7 +48,7 @@ class NodeVariable : public Node
    private:
         Variable value;
     public:
-        NodeVariable(char  value){
+        NodeVariable(char  value):Node(){
             this->value = value;
         };
        
@@ -55,30 +56,26 @@ class NodeVariable : public Node
 
 //create a function who take a string and return a node
 
-// Node* createTree(const std::string& expression){
-//     stack<Node*> nodes;
-//     stack<Operator> operators;
-//     for (char c : expression) {
-//         if (c == '+' || c == '-' || c == '*' || c == '/') {
-//             // Handle operator
-//             Operator op;
-//             Node* right = nodes.top();
-//             nodes.pop();
-//             Node* left = nodes.top();
-//             nodes.pop();
-//             nodes.push(new NodeOperator(op, left, right));
-//             operators.push(op);
-//         } else if (isdigit(c)) {
-//             // Handle constant
-//             Constante constant;
-//             nodes.push(new NodeConstante(constant));
-//         } else if (isalpha(c)) {
-//             // Handle variable
-//             Variable variable;
-//             nodes.push(new NodeVariable(variable));
-//         }
-//     }
-//     return nodes.top();
-// };
+
+Node* buildTreeFromString(const std::string& expression) {
+  std::stack<Node*> nodeStack;
+  for (int i = 0; i < expression.length(); i++) {
+    char c = expression[i];
+    if (c == '+' || c == '-' || c == '*' || c == '/') {
+      // Create a new operator node
+      NodeOperator* op = new NodeOperator(c,nodeStack.top(),nodeStack.top());
+    } else {
+      // Create a new constant node
+      nodeStack.push(new NodeConstante(c - '0'));
+    }
+  }
+  // The final node on the stack is the root of the tree
+  return nodeStack.top();
+}
+
+
+
+
+
 
 
