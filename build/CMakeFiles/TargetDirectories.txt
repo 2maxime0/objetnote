@@ -1,0 +1,3 @@
+/home/obama/object-c++/objetnote/build/CMakeFiles/rebuild_cache.dir
+/home/obama/object-c++/objetnote/build/CMakeFiles/edit_cache.dir
+/home/obama/object-c++/objetnote/build/CMakeFiles/NodeExpression.dir

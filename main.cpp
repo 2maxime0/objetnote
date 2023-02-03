@@ -5,22 +5,7 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <stack>
-#include "node.h"
-
-int main(int argc, char const *argv[])
-{
-    //take the string with the standard entry
-    string input;
-    getline(cin, input);
-
-    //print input 
-    cout << input << endl;
-
-    Node* tree = parseExpression(input);
-    printExpression(tree);
-
-    return 0;
-}
+#include "node/node.h"
 
 Node *parseExpression(const std::string &expression) {
     std::stack<Node *> operands;
@@ -76,7 +61,7 @@ Node *parseExpression(const std::string &expression) {
 
 void printExpression(Node* node) {
     if (NodeConstante* constanteNode = dynamic_cast<NodeConstante*>(node)) {
-        cout << constanteNode->value->getValue() << " ";
+        cout << constanteNode->getValue().getValue() << " ";
     } else if (NodeOperator* operatorNode = dynamic_cast<NodeOperator*>(node)) {
         cout << "(";
         printExpression(operatorNode->getLeft());
@@ -84,4 +69,19 @@ void printExpression(Node* node) {
         printExpression(operatorNode->getRight());
         cout << ")";
     }
+}
+
+int main(int argc, char const *argv[])
+{
+    //take the string with the standard entry
+    string input;
+    getline(cin, input);
+
+    //print input 
+    cout << input << endl;
+
+    Node* tree = parseExpression(input);
+    printExpression(tree);
+
+    return 0;
 }
