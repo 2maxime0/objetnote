@@ -1,3 +1,6 @@
+#ifndef VARIABLE_H
+#define VARIABLE_H
+
 class Variable
 {
 private:
@@ -8,3 +11,5 @@ public:
     char getIdent();
   
 };
+
+#endif // VARIABLE_H

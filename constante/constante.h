@@ -1,5 +1,7 @@
-//Constant class definition with an integer value and the necessary methods to create it and manipulate it
+#ifndef CONSTANTE_H
+#define CONSTANTE_H
 
+/// @brief 
 class Constante
 {
     private:
@@ -10,4 +12,6 @@ class Constante
         Constante(int value);
         int getValue();
 };
+
+#endif // CONSTANTE_H
 

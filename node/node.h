@@ -1,8 +1,11 @@
-//create a node class who contain an operator and two pointer to node
+
+#ifdef NODE_H
+#define NODE_H
+
 #include <string>
-#include "operator.h"
-#include "constante.h"
-#include "variable.h"
+#include "../operator/operator.h"
+#include "../constante/constante.h"
+#include "../variable/variable.h"
 using namespace std;
 class Node
 { 
@@ -19,7 +22,7 @@ class NodeOperator : public Node
         Node *right;
 
     public:
-        NodeOperator(Operator op, Node *left, Node *right);
+        NodeOperator(char op, Node *left, Node *right);
        
 };
 
@@ -35,9 +38,15 @@ class NodeConstante : public Node
 
 class NodeVariable : public Node
 {
-    private:
+   private:
         Variable value;
     public:
         NodeVariable(char  value);
        
 };
+
+//create a function who take a string and return a node
+
+Node* createTree(const std::string& expression);
+
+#endif
