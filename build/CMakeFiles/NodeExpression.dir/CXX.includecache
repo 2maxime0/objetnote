@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/obama/object-c++/objetnote/constante/constante.cpp
+constante.h
+/home/obama/object-c++/objetnote/constante/constante.h
+
 /home/obama/object-c++/objetnote/constante/constante.h
 
 /home/obama/object-c++/objetnote/main.cpp
@@ -18,6 +22,10 @@ stack
 node/node.h
 /home/obama/object-c++/objetnote/node/node.h
 
+/home/obama/object-c++/objetnote/node/node.cpp
+node.h
+/home/obama/object-c++/objetnote/node/node.h
+
 /home/obama/object-c++/objetnote/node/node.h
 string
 -
@@ -28,7 +36,15 @@ string
 ../variable/variable.h
 /home/obama/object-c++/objetnote/variable/variable.h
 
+/home/obama/object-c++/objetnote/operator/operator.cpp
+operator.h
 /home/obama/object-c++/objetnote/operator/operator.h
+
+/home/obama/object-c++/objetnote/operator/operator.h
+
+/home/obama/object-c++/objetnote/variable/variable.cpp
+variable.h
+/home/obama/object-c++/objetnote/variable/variable.h
 
 /home/obama/object-c++/objetnote/variable/variable.h
 

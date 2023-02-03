@@ -1,4 +1,6 @@
-//DEFINE operator class 
+#ifndef OPERATOR_H
+#define OPERATOR_H
+
 class Operator
 {
     private :
@@ -9,3 +11,5 @@ class Operator
         char getOp();
         int operate(int a, int b);  
 };
+
+#endif

@@ -1,11 +1,8 @@
-//take a string with the standard entry 
-//and return a string with the standard exit
-//the standard entry is a string with the following format:
-using namespace std;
 #include <iostream>
 #include <string>
 #include <stack>
 #include "node/node.h"
+using namespace std;
 
 Node *parseExpression(const std::string &expression) {
     std::stack<Node *> operands;
