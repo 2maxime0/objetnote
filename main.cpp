@@ -4,66 +4,36 @@
 #include "node/node.h"
 using namespace std;
 
-Node *parseExpression(const std::string &expression) {
-    std::stack<Node *> operands;
-    std::stack<char> operators;
-    for (int i = 0; i < expression.size(); i++) {
-        char c = expression[i];
-        if (c >= '0' && c <= '9') {
-            int j = i;
-            while (j < expression.size() && expression[j] >= '0' && expression[j] <= '9') {
-                j++;
-            }
-            operands.push(new NodeConstante(std::stoi(expression.substr(i, j - i))));
-            i = j - 1;
+Node* buildExpressionTree(const string& input) {
+    stack<Node*> nodes;
+    for (char c : input) {
+        if (isdigit(c)) {
+            nodes.push(new NodeConstante(c - '0'));
+        } else if (isalpha(c)) {
+            nodes.push(new NodeVariable(c));
         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-            while (!operators.empty() && operators.top() != '(') {
-                char op = operators.top();
-                operators.pop();
-                Node *right = operands.top();
-                operands.pop();
-                Node *left = operands.top();
-                operands.pop();
-                operands.push(new NodeOperator(op, left, right));
-            }
-            operators.push(c);
-        } else if (c == '(') {
-            operators.push(c);
-        } else if (c == ')') {
-            while (operators.top() != '(') {
-                char op = operators.top();
-                operators.pop();
-                Node *right = operands.top();
-                operands.pop();
-                Node *left = operands.top();
-                operands.pop();
-                operands.push(new NodeOperator(op, left, right));
-            }
-            operators.pop();
-        } else {
-            operands.push(new NodeVariable(c));
+            Node* right = nodes.top();
+            nodes.pop();
+            Node* left = nodes.top();
+            nodes.pop();
+            nodes.push(new NodeOperator(Operator(c), left, right));
         }
     }
-    while (!operators.empty()) {
-        char op = operators.top();
-        operators.pop();
-        Node *right = operands.top();
-        operands.pop();
-        Node *left = operands.top();
-        operands.pop();
-        operands.push(new NodeOperator(op, left, right));
-    }
-    return operands.top();
+    return nodes.top();
 }
 
-void printExpression(Node* node) {
-    if (NodeConstante* constanteNode = dynamic_cast<NodeConstante*>(node)) {
-        cout << constanteNode->getValue().getValue() << " ";
-    } else if (NodeOperator* operatorNode = dynamic_cast<NodeOperator*>(node)) {
+void printExpressionTree(Node* node) {
+    if (!node) return;
+
+    if (NodeConstante* nc = dynamic_cast<NodeConstante*>(node)) {
+        cout << nc->getValue().getValue() << " ";
+    } else if (NodeVariable* nv = dynamic_cast<NodeVariable*>(node)) {
+        cout << nv->getValue().getIdent() << " ";
+    } else if (NodeOperator* no = dynamic_cast<NodeOperator*>(node)) {
         cout << "(";
-        printExpression(operatorNode->getLeft());
-        cout << operatorNode->getOp().getOp() << " ";
-        printExpression(operatorNode->getRight());
+        printExpressionTree(no->getLeft());
+        cout << no->getOp().getOp() << " ";
+        printExpressionTree(no->getRight());
         cout << ")";
     }
 }
@@ -77,8 +47,10 @@ int main(int argc, char const *argv[])
     //print input 
     cout << input << endl;
 
-    Node* tree = parseExpression(input);
-    printExpression(tree);
+    //build the tree
+    Node* tree = buildExpressionTree(input);
+    //Print the tree
+    printExpressionTree(tree);
 
     return 0;
 }
