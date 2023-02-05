@@ -1,5 +1,6 @@
 //create a node class who contain an operator and two pointer to node
 #include "node.h"
+#include <stack>
 
 //constructor of Node
 Node::Node()
@@ -37,4 +38,20 @@ NodeVariable::NodeVariable(char  value)
 //getters
 Variable NodeVariable::getValue() { return value; }
 
-
+Node* Node::buildExpressionTree(const string& input) {
+    stack<Node*> nodes;
+    for (char c : input) {
+        if (isdigit(c)) {
+            nodes.push(new NodeConstante(c - '0'));
+        } else if (isalpha(c)) {
+            nodes.push(new NodeVariable(c));
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+            Node* right = nodes.top();
+            nodes.pop();
+            Node* left = nodes.top();
+            nodes.pop();
+            nodes.push(new NodeOperator(Operator(c), left, right));
+        }
+    }
+    return nodes.top();
+}

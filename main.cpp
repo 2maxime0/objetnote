@@ -4,23 +4,23 @@
 #include "node/node.h"
 using namespace std;
 
-Node* buildExpressionTree(const string& input) {
-    stack<Node*> nodes;
-    for (char c : input) {
-        if (isdigit(c)) {
-            nodes.push(new NodeConstante(c - '0'));
-        } else if (isalpha(c)) {
-            nodes.push(new NodeVariable(c));
-        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-            Node* right = nodes.top();
-            nodes.pop();
-            Node* left = nodes.top();
-            nodes.pop();
-            nodes.push(new NodeOperator(Operator(c), left, right));
-        }
-    }
-    return nodes.top();
-}
+// Node* buildExpressionTree(const string& input) {
+//     stack<Node*> nodes;
+//     for (char c : input) {
+//         if (isdigit(c)) {
+//             nodes.push(new NodeConstante(c - '0'));
+//         } else if (isalpha(c)) {
+//             nodes.push(new NodeVariable(c));
+//         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+//             Node* right = nodes.top();
+//             nodes.pop();
+//             Node* left = nodes.top();
+//             nodes.pop();
+//             nodes.push(new NodeOperator(Operator(c), left, right));
+//         }
+//     }
+//     return nodes.top();
+// }
 
 void printExpressionTree(Node* node) {
     if (!node) return;
@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
     cout << input << endl;
 
     //build the tree
-    Node* tree = buildExpressionTree(input);
+    Node* tree = Node::buildExpressionTree(input);
     //Print the tree
     printExpressionTree(tree);
 
