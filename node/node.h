@@ -10,6 +10,7 @@ class Node
         Node();
         virtual ~Node() {}
         static Node* buildExpressionTree(const string& input);
+        static void printExpressionTree(Node* node);
        
 };   
 

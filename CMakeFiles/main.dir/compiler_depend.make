@@ -351,7 +351,14 @@ CMakeFiles/main.dir/node/node.cpp.o: node/node.cpp \
   /usr/include/c++/11/bits/basic_string.tcc \
   operator/operator.h \
   constante/constante.h \
-  variable/variable.h
+  variable/variable.h \
+  /usr/include/c++/11/stack \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/bits/stl_stack.h \
+  /usr/include/c++/11/bits/uses_allocator.h
 
 CMakeFiles/main.dir/operator/operator.cpp.o: operator/operator.cpp \
   /usr/include/stdc-predef.h \

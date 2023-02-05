@@ -22,21 +22,21 @@ using namespace std;
 //     return nodes.top();
 // }
 
-void printExpressionTree(Node* node) {
-    if (!node) return;
+// void printExpressionTree(Node* node) {
+//     if (!node) return;
 
-    if (NodeConstante* nc = dynamic_cast<NodeConstante*>(node)) {
-        cout << nc->getValue().getValue() << " ";
-    } else if (NodeVariable* nv = dynamic_cast<NodeVariable*>(node)) {
-        cout << nv->getValue().getIdent() << " ";
-    } else if (NodeOperator* no = dynamic_cast<NodeOperator*>(node)) {
-        cout << "(";
-        printExpressionTree(no->getLeft());
-        cout << no->getOp().getOp() << " ";
-        printExpressionTree(no->getRight());
-        cout << ")";
-    }
-}
+//     if (NodeConstante* nc = dynamic_cast<NodeConstante*>(node)) {
+//         cout << nc->getValue().getValue() << " ";
+//     } else if (NodeVariable* nv = dynamic_cast<NodeVariable*>(node)) {
+//         cout << nv->getValue().getIdent() << " ";
+//     } else if (NodeOperator* no = dynamic_cast<NodeOperator*>(node)) {
+//         cout << "(";
+//         printExpressionTree(no->getLeft());
+//         cout << no->getOp().getOp() << " ";
+//         printExpressionTree(no->getRight());
+//         cout << ")";
+//     }
+// }
 
 int main(int argc, char const *argv[])
 {
@@ -50,7 +50,7 @@ int main(int argc, char const *argv[])
     //build the tree
     Node* tree = Node::buildExpressionTree(input);
     //Print the tree
-    printExpressionTree(tree);
+    Node::printExpressionTree(tree);
 
     return 0;
 }
