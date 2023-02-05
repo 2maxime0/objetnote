@@ -38,5 +38,5 @@ main
 # Cmakes files
 CMakeCache.txt
 CMakeFiles/
-MakeFile
-cmake_install.cmake_install
+Makefile
+cmake_install.cmake
