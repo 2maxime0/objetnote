@@ -9,9 +9,9 @@ int main(int argc, char const *argv[])
 {
     bool run = true;
 
-    while (true )
+    while (run )
     {
-        cout<<"Entrez une expression postfixe (ex: 1 2 +) , test pou rlancer les assert ou 'q' pour quitter"<<endl;
+        cout<<"Entrez une expression en polonaise inversé , test pou rlancer les assert ou 'q' pour quitter"<<endl;
 
     string input;
     getline(cin, input);
@@ -66,16 +66,13 @@ int main(int argc, char const *argv[])
     else
     {
 
-    //ENTREE (pour tester manuellement)
-    string input;
-    getline(cin, input);
-
     //AFFICHAGE ENTREE
     cout << input << endl;
 
     //RESOLUTION
     Node *tree = Node::buildExpressionTree(input);
     Node::printExpressionTree(tree);
+    cout<<endl;
         
 
 
@@ -85,6 +82,8 @@ int main(int argc, char const *argv[])
 
 
  
+
+}
 
     return 0;
 }
