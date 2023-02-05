@@ -3,6 +3,7 @@
 #include "../operator/operator.h"
 #include "../constante/constante.h"
 #include "../variable/variable.h"
+#include "../visitor/visitor.h"
 using namespace std;
 class Node
 { 
@@ -11,6 +12,7 @@ class Node
         virtual ~Node() {}
         static Node* buildExpressionTree(const string& input);
         static void printExpressionTree(Node* node);
+         virtual void accept(Visitor* visitor) = 0;
        
 };   
 
@@ -22,6 +24,9 @@ class NodeOperator : public Node
         Node *right;
 
     public:
+        void accept(Visitor* visitor) override {
+            visitor->visit(this);
+        }
         NodeOperator(Operator op, Node *left, Node *right);
         //getters
         Operator getOp();
@@ -36,6 +41,9 @@ class NodeConstante : public Node
         Constante value;
 
     public:
+        void accept(Visitor* visitor) override {
+            visitor->visit(this);
+        }
         NodeConstante(int value);
         //getters
         Constante getValue();
@@ -47,6 +55,9 @@ class NodeVariable : public Node
     private:
         Variable value;
     public:
+        void accept(Visitor* visitor) override {
+            visitor->visit(this);
+        }
         NodeVariable(char  value);
         //getters
         Variable getValue();
