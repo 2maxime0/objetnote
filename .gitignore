@@ -36,5 +36,5 @@ settings.json
 /build
 
 /build2
-
+main
 CMakeLists.txt

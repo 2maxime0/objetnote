@@ -9,8 +9,6 @@ class Node
     public:
         Node();
         virtual ~Node() {}
-        static Node* buildExpressionTree(const string& input);
-        static void printExpressionTree(Node* node);
        
 };   
 
@@ -52,4 +50,3 @@ class NodeVariable : public Node
         Variable getValue();
        
 };
-
