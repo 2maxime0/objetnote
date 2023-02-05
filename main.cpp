@@ -1,23 +1,58 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <cassert>
 #include "node/node.h"
 using namespace std;
 
-
 int main(int argc, char const *argv[])
 {
-    //take the string with the standard entry
+    // take the string with the standard entry
     string input;
     getline(cin, input);
 
-    //print input 
+    // print input
     cout << input << endl;
 
-    //build the tree
-    Node* tree = Node::buildExpressionTree(input);
-    //Print the tree
+    // build the tree
+    Node *tree = Node::buildExpressionTree(input);
+    // Print the tree
     Node::printExpressionTree(tree);
+
+    // Test buildExpressionTree with simple constant expression
+    string input1 = "1";
+    Node *tree1 = Node::buildExpressionTree(input1);
+    assert(dynamic_cast<NodeConstante *>(tree1)->getValue().getValue() == 1);
+
+    // Test buildExpressionTree with simple variable expression
+    string input2 = "x";
+    Node *tree2 = Node::buildExpressionTree(input2);
+    assert(dynamic_cast<NodeVariable *>(tree2)->getValue().getIdent() == 'x');
+
+    // Test buildExpressionTree with simple operator expression
+    string input3 = "1 2 +";
+    Node *tree3 = Node::buildExpressionTree(input3);
+    NodeOperator *no3 = dynamic_cast<NodeOperator *>(tree3);
+    assert(no3->getOp().getOp() == '+');
+    assert(dynamic_cast<NodeConstante *>(no3->getLeft())->getValue().getValue() == 1);
+    assert(dynamic_cast<NodeConstante *>(no3->getRight())->getValue().getValue() == 2);
+
+    // Test buildExpressionTree with complex expression
+    string input4 = "x 2 3 * + 4 5 - /";
+    Node *tree4 = Node::buildExpressionTree(input4);
+    NodeOperator *no4 = dynamic_cast<NodeOperator *>(tree4);
+    assert(no4->getOp().getOp() == '/');
+    NodeOperator *no4_right = dynamic_cast<NodeOperator *>(no4->getRight());
+    assert(no4_right->getOp().getOp() == '-');
+    assert(dynamic_cast<NodeConstante *>(no4_right->getLeft())->getValue().getValue() == 4);
+    assert(dynamic_cast<NodeConstante *>(no4_right->getRight())->getValue().getValue() == 5);
+    NodeOperator *no4_left = dynamic_cast<NodeOperator *>(no4->getLeft());
+    assert(no4_left->getOp().getOp() == '+');
+    NodeOperator *no4_left_right = dynamic_cast<NodeOperator *>(no4_left->getRight());
+    assert(no4_left_right->getOp().getOp() == '*');
+    assert(dynamic_cast<NodeConstante *>(no4_left_right->getLeft())->getValue().getValue() == 2);
+    assert(dynamic_cast<NodeConstante *>(no4_left_right->getRight())->getValue().getValue() == 3);
+    assert(dynamic_cast<NodeVariable *>(no4_left->getLeft())->getValue().getIdent() == 'x');
 
     return 0;
 }
