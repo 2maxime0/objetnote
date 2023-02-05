@@ -7,29 +7,31 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    // take the string with the standard entry
+
+    //ENTREE (pour tester manuellement)
     string input;
     getline(cin, input);
 
-    // print input
+    //AFFICHAGE ENTREE
     cout << input << endl;
 
-    // build the tree
+    //RESOLUTION
     Node *tree = Node::buildExpressionTree(input);
-    // Print the tree
     Node::printExpressionTree(tree);
 
-    // Test buildExpressionTree with simple constant expression
+    //-- TESTS SUPPLEMENTAIRES --//
+
+    //Test1
     string input1 = "1";
     Node *tree1 = Node::buildExpressionTree(input1);
     assert(dynamic_cast<NodeConstante *>(tree1)->getValue().getValue() == 1);
 
-    // Test buildExpressionTree with simple variable expression
+    //Test2
     string input2 = "x";
     Node *tree2 = Node::buildExpressionTree(input2);
     assert(dynamic_cast<NodeVariable *>(tree2)->getValue().getIdent() == 'x');
 
-    // Test buildExpressionTree with simple operator expression
+    //Test3
     string input3 = "1 2 +";
     Node *tree3 = Node::buildExpressionTree(input3);
     NodeOperator *no3 = dynamic_cast<NodeOperator *>(tree3);
@@ -37,7 +39,7 @@ int main(int argc, char const *argv[])
     assert(dynamic_cast<NodeConstante *>(no3->getLeft())->getValue().getValue() == 1);
     assert(dynamic_cast<NodeConstante *>(no3->getRight())->getValue().getValue() == 2);
 
-    // Test buildExpressionTree with complex expression
+    //Test4
     string input4 = "x 2 3 * + 4 5 - /";
     Node *tree4 = Node::buildExpressionTree(input4);
     NodeOperator *no4 = dynamic_cast<NodeOperator *>(tree4);

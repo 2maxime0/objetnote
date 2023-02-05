@@ -1,4 +1,3 @@
-//create a node class who contain an operator and two pointer to node
 #include <string>
 #include "../operator/operator.h"
 #include "../constante/constante.h"
@@ -23,7 +22,6 @@ class NodeOperator : public Node
 
     public:
         NodeOperator(Operator op, Node *left, Node *right);
-        //getters
         Operator getOp();
         Node* getLeft();
         Node* getRight();
@@ -37,7 +35,6 @@ class NodeConstante : public Node
 
     public:
         NodeConstante(int value);
-        //getters
         Constante getValue();
        
 };
@@ -48,7 +45,6 @@ class NodeVariable : public Node
         Variable value;
     public:
         NodeVariable(char  value);
-        //getters
         Variable getValue();
        
 };

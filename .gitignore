@@ -33,8 +33,10 @@
 
 settings.json
 
-/build
-
-/build2
 main
 
+# Cmakes files
+CMakeCache.txt
+CMakeFiles/
+MakeFile
+cmake_install.cmake_install

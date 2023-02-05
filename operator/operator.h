@@ -4,7 +4,7 @@
 class Operator
 {
     private :
-        char op; //Operator in private to keep it constant
+        char op;
     public :    
         Operator();
         Operator(char op);
