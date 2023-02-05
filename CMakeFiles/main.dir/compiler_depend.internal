@@ -355,13 +355,6 @@ CMakeFiles/main.dir/node/node.cpp.o
  /home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/operator/operator.h
  /home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/constante/constante.h
  /home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/variable/variable.h
- /usr/include/c++/11/stack
- /usr/include/c++/11/deque
- /usr/include/c++/11/bits/stl_uninitialized.h
- /usr/include/c++/11/bits/stl_deque.h
- /usr/include/c++/11/bits/deque.tcc
- /usr/include/c++/11/bits/stl_stack.h
- /usr/include/c++/11/bits/uses_allocator.h
 
 CMakeFiles/main.dir/operator/operator.cpp.o
  /home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/operator/operator.cpp
