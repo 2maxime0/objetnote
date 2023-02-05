@@ -7,19 +7,23 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+    bool run = true;
 
-    //ENTREE (pour tester manuellement)
+    while (true )
+    {
+        cout<<"Entrez une expression postfixe (ex: 1 2 +) , test pou rlancer les assert ou 'q' pour quitter"<<endl;
+
     string input;
     getline(cin, input);
 
-    //AFFICHAGE ENTREE
-    cout << input << endl;
+    if (input == "q")
+    {
+        run = false;
+    }
+    else if (input == "test")
+    {
 
-    //RESOLUTION
-    Node *tree = Node::buildExpressionTree(input);
-    Node::printExpressionTree(tree);
-
-    //-- TESTS SUPPLEMENTAIRES --//
+           //-- TESTS SUPPLEMENTAIRES --//
 
     //Test1
     string input1 = "1";
@@ -55,6 +59,32 @@ int main(int argc, char const *argv[])
     assert(dynamic_cast<NodeConstante *>(no4_left_right->getLeft())->getValue().getValue() == 2);
     assert(dynamic_cast<NodeConstante *>(no4_left_right->getRight())->getValue().getValue() == 3);
     assert(dynamic_cast<NodeVariable *>(no4_left->getLeft())->getValue().getIdent() == 'x');
+
+
+        
+    }
+    else
+    {
+
+    //ENTREE (pour tester manuellement)
+    string input;
+    getline(cin, input);
+
+    //AFFICHAGE ENTREE
+    cout << input << endl;
+
+    //RESOLUTION
+    Node *tree = Node::buildExpressionTree(input);
+    Node::printExpressionTree(tree);
+        
+
+
+    }
+    
+
+
+
+ 
 
     return 0;
 }

@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/main.dir/main.cpp.o -c \"/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/main.cpp\"",
+  "file": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/main.cpp"
+},
+{
+  "directory": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/main.dir/node/node.cpp.o -c \"/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/node/node.cpp\"",
+  "file": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/node/node.cpp"
+},
+{
+  "directory": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/main.dir/operator/operator.cpp.o -c \"/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/operator/operator.cpp\"",
+  "file": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/operator/operator.cpp"
+},
+{
+  "directory": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/main.dir/constante/constante.cpp.o -c \"/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/constante/constante.cpp\"",
+  "file": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/constante/constante.cpp"
+},
+{
+  "directory": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/main.dir/variable/variable.cpp.o -c \"/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/variable/variable.cpp\"",
+  "file": "/home/death-joke/Bureau/App4/programation objet/tp_note/objetnote/variable/variable.cpp"
+}
+]
